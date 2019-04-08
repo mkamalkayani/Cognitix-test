@@ -1,3 +1,11 @@
-<p>
-  users-list works!
-</p>
+<ul *ngIf="users">
+  <li *ngFor="let user of users">
+    <div>
+      {{ user.name }}
+    </div>
+    <div>
+      {{ user.address.street }}, {{ user.address.zipcode }}
+      {{ user.address.city }}
+    </div>
+  </li>
+</ul>
