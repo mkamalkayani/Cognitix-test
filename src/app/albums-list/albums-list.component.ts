@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from "@angular/core";
+import { Album } from "./../Types/Album";
+import { AlbumsService } from "./../albums.service";
+import { Component, OnInit, Input, SimpleChanges } from "@angular/core";
 import { User } from "../Types/User";
 
 @Component({
@@ -8,8 +10,20 @@ import { User } from "../Types/User";
 })
 export class AlbumsListComponent implements OnInit {
   @Input() selectedUser: User;
+  albums: Album[];
 
-  constructor() {}
+  constructor(private albumsService: AlbumsService) {}
 
   ngOnInit() {}
+  ngOnChanges() {
+    console.log("changed");
+    this.getAlbums();
+  }
+  getAlbums() {
+    if (this.selectedUser !== undefined) {
+      this.albumsService.getAlbums(this.selectedUser.id).subscribe(data => {
+        this.albums = data;
+      });
+    }
+  }
 }
