@@ -1,12 +1,13 @@
-<h2 *ngIf="selectedUser" style="text-align:center">
-  Albums of {{ selectedUser.name }}
-</h2>
+<h2 *ngIf="selectedUser">Albums of {{ selectedUser.name }}</h2>
 
 <ul *ngIf="albums">
-  <p>albums</p>
-  <li *ngFor="let album of albums">
+  <li *ngFor="let album of albums" (click)="onSelect(album)">
     <div>
       {{ album.title }}
     </div>
   </li>
 </ul>
+
+<hr />
+
+<app-photos-list [selectedAlbum]="selectedAlbum"></app-photos-list>
