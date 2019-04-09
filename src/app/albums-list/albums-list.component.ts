@@ -11,13 +11,17 @@ import { User } from "../Types/User";
 export class AlbumsListComponent implements OnInit {
   @Input() selectedUser: User;
   albums: Album[];
+  selectedAlbum: Album;
 
   constructor(private albumsService: AlbumsService) {}
 
   ngOnInit() {}
   ngOnChanges() {
-    console.log("changed");
     this.getAlbums();
+  }
+
+  onSelect(album: Album): void {
+    this.selectedAlbum = album;
   }
   getAlbums() {
     if (this.selectedUser !== undefined) {
