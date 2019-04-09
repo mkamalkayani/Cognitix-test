@@ -9,11 +9,15 @@ import { Component, OnInit } from "@angular/core";
 })
 export class UsersListComponent implements OnInit {
   users: User[];
+  selectedUser: User;
 
   constructor(private userService: UserService) {}
 
   ngOnInit() {
     this.userService.getUsers().subscribe(data => (this.users = data));
-    console.log(this.users);
+  }
+
+  onSelect(user: User): void {
+    this.selectedUser = user;
   }
 }

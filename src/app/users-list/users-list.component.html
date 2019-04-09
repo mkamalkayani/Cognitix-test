@@ -1,5 +1,5 @@
 <ul *ngIf="users">
-  <li *ngFor="let user of users">
+  <li *ngFor="let user of users" (click)="onSelect(user)">
     <div>
       {{ user.name }}
     </div>
@@ -9,3 +9,7 @@
     </div>
   </li>
 </ul>
+
+<hr />
+
+<app-albums-list [selectedUser]="selectedUser"></app-albums-list>
