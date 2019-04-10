@@ -1,7 +1,11 @@
 <h2 *ngIf="selectedUser">Albums of {{ selectedUser.name }}</h2>
 
 <ul *ngIf="albums">
-  <li *ngFor="let album of albums" (click)="onSelect(album)">
+  <li
+    *ngFor="let album of albums"
+    (click)="onSelect(album)"
+    [class.selected]="album === selectedAlbum"
+  >
     <div>
       {{ album.title }}
     </div>

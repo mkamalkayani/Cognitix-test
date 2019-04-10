@@ -3,7 +3,11 @@
 </div>
 
 <ul *ngIf="users">
-  <li *ngFor="let user of users" (click)="onSelect(user)">
+  <li
+    *ngFor="let user of users"
+    (click)="onSelect(user)"
+    [class.selected]="user === selectedUser"
+  >
     <div>
       {{ user.name }}
     </div>

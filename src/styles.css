@@ -1,1 +1,15 @@
 /* You can add global styles to this file, and also import other style files */
+li {
+  padding: 0.5em;
+}
+
+li:hover {
+  color: #607d8b;
+  background-color: #ddd;
+  left: 0.1em;
+}
+
+.selected {
+  background-color: #cfd8dc !important;
+  color: blue;
+}
